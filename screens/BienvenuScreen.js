@@ -10,6 +10,7 @@ import {
   Dimensions,
 } from "react-native";
 import { Video } from "expo-av";
+import { LinearGradient } from 'expo-linear-gradient';
 
 export default function BienvenuScreen({ navigation }) {
   const video1 = useRef(null);
@@ -48,7 +49,13 @@ export default function BienvenuScreen({ navigation }) {
             <Text style={styles.title1}>Bienvenue !</Text>
           </View>
         </View>
+        <LinearGradient
 
+colors={['hsla(176, 61%, 87%, 1)', 'hsla(150, 54%, 86%, 1)', 'hsla(242, 68%, 84%, 1)']}
+start={{ x: 0, y: 0 }}
+end={{ x: 1, y: 0 }}
+style={styles.gradient}
+>
         <View style={styles.onboardingView}>
           <View style={styles.logoContainer}>
             <Image
@@ -61,12 +68,19 @@ export default function BienvenuScreen({ navigation }) {
           </View>
           <View style={styles.textContainer}>
             <Text style={styles.text}>
-              Avec My Meds, vous pouvez vérifier la disponibilité de vos
-              médicaments dans les pharmacies alentours
+              Avec My Meds, vérifier la disponibilité de vos
+              médicaments dans les pharmacies autour de vous. 
             </Text>
           </View>
         </View>
-
+        </LinearGradient>
+         
+        <LinearGradient
+ colors={['hsla(176, 61%, 87%, 1)', 'hsla(150, 54%, 86%, 1)', 'hsla(242, 68%, 84%, 1)']}
+ start={{ x: 0, y: 0 }}
+ end={{ x: 1, y: 0 }}
+ style={styles.gradient}
+>
         <View style={styles.onboardingView}>
           <View style={styles.logoContainer}>
             <Image
@@ -90,6 +104,7 @@ export default function BienvenuScreen({ navigation }) {
             </TouchableOpacity>
           </View>
         </View>
+        </LinearGradient>
       </ScrollView>
     </SafeAreaView>
   );
@@ -165,7 +180,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 38,
-    color: "#88FF5B",
+    color: "#5207E6",
     opacity: 0.9,
     margin: 33,
     textTransform: "uppercase",
@@ -194,7 +209,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 20,
-    color: "grey",
+    color: "#5207E6",
     opacity: 0.9,
     margin: 33,
   },

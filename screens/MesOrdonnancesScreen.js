@@ -23,7 +23,7 @@ export default function MesOrdonnancesScreen({ navigation }) {
 
   const fetchOrdo = async () => {
     const response = await fetch(
-      `https://mymeds-backend.vercel.app/users/upload/${user.token}`
+      `https://backmymedperso.vercel.app/users/upload/${user.token}`
     );
     const data = await response.json();
 
@@ -47,7 +47,7 @@ export default function MesOrdonnancesScreen({ navigation }) {
 
   //delete photo
   const handleDelete = (url) => {
-    fetch(`https://mymeds-backend.vercel.app/users/deletePhoto/${user.token}`, {
+    fetch(`https://backmymedperso.vercel.app/users/deletePhoto/${user.token}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ url: url }),
@@ -78,7 +78,7 @@ export default function MesOrdonnancesScreen({ navigation }) {
         type: "image/jpeg",
       });
 
-      fetch(`https://mymeds-backend.vercel.app/upload/${user.token}`, {
+      fetch(`https://backmymedperso.vercel.app/upload/${user.token}`, {
         method: "POST",
         body: formData,
       })

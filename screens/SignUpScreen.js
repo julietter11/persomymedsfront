@@ -61,7 +61,7 @@ export default function SignUpScreen({ navigation }) {
 
   //ajoute un utilisateur en BDD
   const handleValidateSubmit = () => {
-    fetch("https://mymeds-backend.vercel.app/users/signup", {
+    fetch("https://backmymedperso.vercel.app/users/signup", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -112,7 +112,7 @@ export default function SignUpScreen({ navigation }) {
         type: "image/jpeg",
       });
 
-      fetch(`https://mymeds-backend.vercel.app/upload`, {
+      fetch(`https://backmymedperso.vercel.app/upload`, {
         method: "POST",
         body: formData,
       })

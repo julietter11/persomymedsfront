@@ -44,7 +44,7 @@ export default function CameraScreen({ navigation }) {
     });
 
     console.log("formData");
-    fetch(`https://mymeds-backend.vercel.app/upload/${user.token}`, {
+    fetch(`https://backmymedperso.vercel.app/upload/${user.token}`, {
       method: "POST",
       body: formData,
     })

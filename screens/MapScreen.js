@@ -20,7 +20,7 @@ export default function MapScreen({ navigation }) {
   const [markerPharma, setMarkerPharma] = useState([]);
 
   useEffect(() => {
-    fetch(`https://mymeds-backend.vercel.app/pharmacies/garde`)
+    fetch(`https://backmymedperso.vercel.app/pharmacies/garde`)
       .then((response) => response.json())
       .then((data) => {
         //console.log(data);

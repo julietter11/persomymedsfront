@@ -13,6 +13,7 @@ import { searchPosition } from "../reducers/user";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import * as Location from "expo-location";
+import { LinearGradient } from 'expo-linear-gradient';
 
 export default function FindScreen({ navigation }) {
   const dispatch = useDispatch();
@@ -95,6 +96,13 @@ export default function FindScreen({ navigation }) {
   </MapView>*/
 
   return (
+
+    <LinearGradient
+    colors={['hsla(176, 61%, 87%, 1)', 'hsla(150, 54%, 86%, 1)', 'hsla(242, 68%, 84%, 1)']}
+    start={{ x: 0, y: 0 }}
+    end={{ x: 1, y: 0 }}
+    style={styles.gradient}
+   >
     <View style={styles.container}>
       <Image style={styles.image} source={require("../assets/pharma3.png")} />
 
@@ -189,15 +197,14 @@ export default function FindScreen({ navigation }) {
         </View>
       </View>
     </View>
+    </LinearGradient>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  gradient : {
     flex: 1,
-    backgroundColor: "#ffffff",
-    alignItems: "center",
-    justifyContent: "center",
+    
   },
   buttonIcon: {
     height: 30,

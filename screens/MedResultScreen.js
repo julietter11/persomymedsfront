@@ -16,7 +16,7 @@ import { bookMed, validateBook } from "../reducers/user";
 import { Modal } from "react-native";
 
 export default function MedResultScreen({ navigation }) {
-  const BACKEND_URL = "https://mymeds-backend.vercel.app";
+  const BACKEND_URL = "https://backmymedperso.vercel.app";
 
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.value);
@@ -33,7 +33,7 @@ export default function MedResultScreen({ navigation }) {
   const [modalBookNolog, setModalBookNolog] = useState(false);
 
   const fetchMedoc = async () => {
-    const response = await fetch(`${BACKEND_URL}/medicaments/allMedicaments`);
+    const response = await fetch ("https://backmymedperso.vercel.app/medicaments/allMedicaments");
     const data = await response.json();
 
     const list = data.medicaments;

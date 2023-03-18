@@ -14,6 +14,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useIsFocused } from "@react-navigation/native";
 import { userLog } from "../reducers/user";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
+import { LinearGradient } from 'expo-linear-gradient';
 
 export default function ConnectionScreen({ navigation }) {
   const dispatch = useDispatch();
@@ -44,7 +45,7 @@ export default function ConnectionScreen({ navigation }) {
   };
 
   const handlego = async () => {
-    fetch("https://mymeds-backend.vercel.app/users/signin", {
+    fetch("https://backmymedperso.vercel.app/users/signin", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -86,7 +87,14 @@ export default function ConnectionScreen({ navigation }) {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+
+
+      <LinearGradient
+    colors={['hsla(176, 61%, 87%, 1)', 'hsla(150, 54%, 86%, 1)', 'hsla(242, 68%, 84%, 1)']}
+    start={{ x: 0, y: 0 }}
+    end={{ x: 1, y: 0 }}
+    style={styles.gradient}
+   >
       <View style={styles.logoContainer}>
         <Image style={styles.logo} source={require("../assets/pharma3.png")} />
       </View>
@@ -148,14 +156,16 @@ export default function ConnectionScreen({ navigation }) {
           {isExist === true && <Text style={styles.error}>{error}</Text>}
         </View>
       </Modal>
-    </SafeAreaView>
+      </LinearGradient>
+
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
+  
+
+  gradient : {
+    flex : 1,
   },
   swipeContainer: {
     flex: 1,
@@ -289,7 +299,7 @@ const styles = StyleSheet.create({
   },
   textBu1: {
     fontSize: 15,
-    color: "grey",
+    color: "#5207E6",
     textTransform: "uppercase",
     elevation: 10,
     overflow: "hidden",

@@ -42,7 +42,7 @@ export default function CameraCniScreen({ navigation }) {
     });
 
     console.log("formData");
-    fetch(`https://mymeds-backend.vercel.app/upload`, {
+    fetch(`https://backmymedperso.vercel.app/upload`, {
       //instruction pour envoyer vers Cloudinary
       method: "POST",
       body: formData,

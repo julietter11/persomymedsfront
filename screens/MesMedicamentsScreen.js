@@ -10,7 +10,7 @@ export default function MesMedicamentsScreen() {
 
   const fetchLike = async () => {
     const response = await fetch(
-      `https://mymeds-backend.vercel.app/users/${user.token}/likeMed`
+      `https://backmymedperso.vercel.app/users/${user.token}/likeMed`
     );
     const data = await response.json();
     // console.log(data);

@@ -10,7 +10,7 @@ export default function MesReservationsScreen() {
 
   const fetchBook = async () => {
     const response = await fetch(
-      `https://mymeds-backend.vercel.app/books/${user.token}`
+      `https://backmymedperso.vercel.app/books/${user.token}`
     );
     const data = await response.json();
     //dispatch(likesMed(data));

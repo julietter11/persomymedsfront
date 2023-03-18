@@ -27,7 +27,7 @@ export default function ParametreScreen({ navigation }) {
 
   const fetchUser = async () => {
     const response = await fetch(
-      `https://mymeds-backend.vercel.app/users/${user.token}`
+      `https://backmymedperso.vercel.app/users/${user.token}`
     );
     const data = await response.json();
 

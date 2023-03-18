@@ -35,24 +35,7 @@ export default function MapScreen({ navigation }) {
   {markers}
   */
 
-  const handlePress = () => {
-    navigation.navigate("Rechercher");
-  };
-
-  const searchByAdresse = () => {
-    // https://api-adresse.data.gouv.fr/search/?q=8+bd+du+port
-    fetch(`https://api-adresse.data.gouv.fr/search/?q=${adresse}`)
-      .then((response) => response.json())
-      .then((data) => {
-        const firstCity = data.features[0];
-        const newPlace = {
-          latitude: firstCity.geometry.coordinates[1],
-          longitude: firstCity.geometry.coordinates[0],
-        };
-        dispatch(searchPosition(newPlace));
-      });
-    setAdresse("");
-  };
+  
 
   const calculateDistance = (marker1, marker2) => {
     var dis = getDistance(marker1, marker2);
@@ -263,26 +246,13 @@ export default function MapScreen({ navigation }) {
         )}
         {markers}
       </MapView>
-      <View style={styles.searchContainer}>
-        <View style={styles.inputContainer}>
-          <TextInput
-            placeholder="nouvelle recherche"
-            placeholderTextColor="#5207E6"
-            onChangeText={(value) => setAdresse(value)}
-            value={adresse}
-            style={styles.input}
-          />
-        </View>
-        <TouchableOpacity onPress={() => searchByAdresse()} activeOpacity={0.8}>
-          <Text style={styles.textButton}>Valider</Text>
-        </TouchableOpacity>
-      </View>
+     
       <View style={styles.backButtonContainer}>
         <TouchableOpacity
           style={styles.backButton}
           onPress={() => navigation.goBack()}
         >
-          <FontAwesome name="chevron-left" size={40} color="#88FF5B" />
+          <FontAwesome name="chevron-left" size={20} color="#88FF5B" />
         </TouchableOpacity>
       </View>
     </View>
@@ -333,8 +303,10 @@ const styles = StyleSheet.create({
     left: 20,
     backgroundColor: "rgba(82, 7, 230, 0.5)",
     padding: -5,
+    borderRadius : 20
   },
   backButton: {
     padding: 10,
+ 
   },
 });

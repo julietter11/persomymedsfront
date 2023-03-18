@@ -12,6 +12,7 @@ import FontAwesome from "react-native-vector-icons/FontAwesome";
 import * as ImagePicker from "expo-image-picker";
 import { useDispatch, useSelector } from "react-redux";
 import { removePhoto, addPhoto, addPhotoFromBdd } from "../reducers/user";
+import { LinearGradient } from 'expo-linear-gradient';
 
 export default function MesOrdonnancesScreen({ navigation }) {
   const user = useSelector((state) => state.user.value);
@@ -112,6 +113,13 @@ export default function MesOrdonnancesScreen({ navigation }) {
   });
 
   return (
+
+    <LinearGradient
+    colors={['hsla(176, 61%, 87%, 1)', 'hsla(150, 54%, 86%, 1)', 'hsla(242, 68%, 84%, 1)']}
+    start={{ x: 0, y: 0 }}
+    end={{ x: 1, y: 0 }}
+    style={styles.gradient}
+   >
     <View style={styles.container}>
       <Image style={styles.image} source={require("../assets/pharma3.png")} />
 
@@ -151,6 +159,7 @@ export default function MesOrdonnancesScreen({ navigation }) {
         </View>
       </Modal>
     </View>
+    </LinearGradient>
   );
 }
 
@@ -200,13 +209,9 @@ const styles = StyleSheet.create({
   },
   buttons: {
     fontSize: 20,
-    color: "#88FF5B",
+    color: "#5207E6",
     textTransform: "uppercase",
-    textShadowColor: "#5207E6",
-    textShadowOffset: { width: 3, height: 2 },
-    textShadowRadius: 2,
-    elevation: 10,
-    overflow: "hidden",
+   
   },
   textButton: {
     fontSize: 30,

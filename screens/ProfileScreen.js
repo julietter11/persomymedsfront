@@ -9,6 +9,7 @@ import React, { useEffect, useState } from "react";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import { useSelector } from "react-redux";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import { LinearGradient } from 'expo-linear-gradient';
 
 export default function ProfileScreen({ navigation }) {
   const user = useSelector((state) => state.user.value);
@@ -51,13 +52,20 @@ export default function ProfileScreen({ navigation }) {
   };
 
   return (
+
+    <LinearGradient
+    colors={['hsla(176, 61%, 87%, 1)', 'hsla(150, 54%, 86%, 1)', 'hsla(242, 68%, 84%, 1)']}
+    start={{ x: 0, y: 0 }}
+    end={{ x: 1, y: 0 }}
+    style={styles.gradient}
+   >
     <View style={styles.topContainer}>
       <Image style={styles.logo} source={require("../assets/pharma3.png")} />
 
       <FontAwesome
         name="user-circle"
         size={50}
-        color="#88FF5B"
+        color="#5207E6"
         marginRight={12}
       />
       <View>
@@ -119,6 +127,8 @@ export default function ProfileScreen({ navigation }) {
         </TouchableOpacity>
       </View>
     </View>
+
+    </LinearGradient>
   );
 }
 
@@ -160,7 +170,7 @@ const styles = StyleSheet.create({
   },
   textButton: {
     fontSize: 20,
-    color: "grey",
+    color: "#5207E6"
   },
   logo: {
     width: 250,

@@ -14,6 +14,7 @@ import FontAwesome from "react-native-vector-icons/FontAwesome";
 import { useSelector, useDispatch } from "react-redux";
 import { bookMed, validateBook } from "../reducers/user";
 import { Modal } from "react-native";
+import { LinearGradient } from 'expo-linear-gradient';
 
 export default function MedResultScreen({ navigation }) {
   const BACKEND_URL = "https://backmymedperso.vercel.app";
@@ -122,6 +123,7 @@ export default function MedResultScreen({ navigation }) {
               <Button
                 title="Reserver"
                 onPress={() => handleBook(data.idPharma, data.idMed)}
+                color="#5207E6"
               />
             </View>
           </View>
@@ -216,6 +218,14 @@ export default function MedResultScreen({ navigation }) {
   }
 
   return (
+
+    <LinearGradient
+
+    colors={['hsla(176, 61%, 87%, 1)', 'hsla(150, 54%, 86%, 1)', 'hsla(242, 68%, 84%, 1)']}
+    start={{ x: 0, y: 0 }}
+    end={{ x: 1, y: 0 }}
+    style={styles.gradient}
+    >
     <View style={styles.global}>
       {isVisible && (
         <View style={styles.screen}>
@@ -245,14 +255,14 @@ export default function MedResultScreen({ navigation }) {
         <View style={styles.resultSearch}>
           <View>
             <Text
-              style={{ fontSize: 20, color: "#88FF5B", fontWeight: "bold" }}
+              style={{ fontSize: 20, color: "#5207E6", fontWeight: "bold" }}
             >
               {searchText}
             </Text>
             <TouchableOpacity onPress={() => handleLikeMed()}>
               <FontAwesome
                 name="heart"
-                size={15}
+                size={20}
                 marginRight={8}
                 color={likeStyle}
               />
@@ -262,6 +272,7 @@ export default function MedResultScreen({ navigation }) {
             <View style={styles.encadre}>{resultSort}</View>
           </ScrollView>
         </View>
+       
       )}
 
       {listMedoc.length > nbResult && (
@@ -270,7 +281,7 @@ export default function MedResultScreen({ navigation }) {
             style={styles.button}
             title="Plus de pharmacies"
             onPress={() => handleNext()}
-            color="#88FF5B"
+            color="#5207E6"
           />
         </View>
       )}
@@ -328,6 +339,7 @@ export default function MedResultScreen({ navigation }) {
         </Modal>
       )}
     </View>
+    </LinearGradient>
   );
 }
 

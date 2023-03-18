@@ -2,6 +2,7 @@ import { View, Text, Image, StyleSheet } from "react-native";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
+import { LinearGradient } from 'expo-linear-gradient';
 
 export default function MesReservationsScreen() {
   const user = useSelector((state) => state.user.value);
@@ -40,6 +41,13 @@ export default function MesReservationsScreen() {
   });
 
   return (
+
+    <LinearGradient
+    colors={['hsla(176, 61%, 87%, 1)', 'hsla(150, 54%, 86%, 1)', 'hsla(242, 68%, 84%, 1)']}
+    start={{ x: 0, y: 0 }}
+    end={{ x: 1, y: 0 }}
+    style={styles.gradient}
+   >
     <View style={styles.container}>
       <Image style={styles.image} source={require("../assets/pharma3.png")} />
 
@@ -54,6 +62,7 @@ export default function MesReservationsScreen() {
       </View>
       <View>{book}</View>
     </View>
+    </LinearGradient>
   );
 }
 

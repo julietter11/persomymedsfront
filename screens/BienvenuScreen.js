@@ -34,7 +34,7 @@ export default function BienvenuScreen({ navigation }) {
         <View style={styles.onboardingView}>
           <Video
             ref={video1}
-            source={require("../assets/pills.mp4")}
+            source={require("../assets/pills2.mp4")}
             style={styles.video}
             resizeMode="cover"
             isLooping

@@ -11,6 +11,7 @@ import React, { useEffect, useState } from "react";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteUser, logout } from "../reducers/user";
+import { LinearGradient } from 'expo-linear-gradient';
 
 export default function ParametreScreen({ navigation }) {
   const user = useSelector((state) => state.user.value);
@@ -55,7 +56,7 @@ export default function ParametreScreen({ navigation }) {
   };
 
   const emailUpdataValidate = () => {
-    fetch(`https://mymeds-backend.vercel.app/users/${user.token}/updateEmail`, {
+    fetch(`https://backmymedperso.vercel.app/users/${user.token}/updateEmail`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ currentPassword: password, newEmail: email }),
@@ -75,7 +76,7 @@ export default function ParametreScreen({ navigation }) {
 
   const passwordUpdataValidate = () => {
     fetch(
-      `https://mymeds-backend.vercel.app/users/${user.token}/updatePassword`,
+      `https://backmymedperso.vercel.app/users/${user.token}/updatePassword`,
       {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
@@ -97,7 +98,7 @@ export default function ParametreScreen({ navigation }) {
   };
 
   const deleteAccountValidate = () => {
-    fetch(`https://mymeds-backend.vercel.app/users/delete/${user.token}`, {
+    fetch(`https://backmymedperso.vercel.app/users/delete/${user.token}`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ token: user.token }),
@@ -120,6 +121,13 @@ export default function ParametreScreen({ navigation }) {
   };
 
   return (
+
+    <LinearGradient
+    colors={['hsla(176, 61%, 87%, 1)', 'hsla(150, 54%, 86%, 1)', 'hsla(242, 68%, 84%, 1)']}
+    start={{ x: 0, y: 0 }}
+    end={{ x: 1, y: 0 }}
+    style={styles.gradient}
+   >
     <View style={styles.container}>
       <Image style={styles.image} source={require("../assets/pharma3.png")} />
 
@@ -276,6 +284,7 @@ export default function ParametreScreen({ navigation }) {
         <Text style={styles.textconfig}>Se déconnecter</Text>
       </TouchableOpacity>
     </View>
+    </LinearGradient>
   );
 }
 
@@ -299,8 +308,8 @@ const styles = StyleSheet.create({
     width: 273,
     height: 53,
     marginTop: 22,
-    color: "grey",
-    fontSize: 20,
+    color: "black",
+    fontSize: 15,
   },
   touchablecontainer: {
     flexDirection: "row",

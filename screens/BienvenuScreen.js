@@ -64,7 +64,7 @@ style={styles.gradient}
             />
           </View>
           <View style={styles.titleContainer}>
-            <Text style={styles.title}>vos médicaments</Text>
+            <Text style={styles.title}>Trouvez vos médicaments</Text>
           </View>
           <View style={styles.textContainer}>
             <Text style={styles.text}>

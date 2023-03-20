@@ -32,32 +32,7 @@ export default function SignUpScreen({ navigation }) {
   const [isExist, setIsExist] = useState(false);
   const [error, setError] = useState("");
 
-  //ouvre le modal (photo/import)
-  const handlePress = () => {
-    setModalVisible(true);
-  };
-
-  //ferme le modal (photo/import)
-  const handleClose = () => {
-    setModalVisible(false);
-  };
-
-  //aller sur la caméra et ferme le modal (photo/import)
-  const goToCamera = () => {
-    navigation.navigate("CameraCni");
-    setModalVisible(false);
-  };
-
-  //ferme le modal zoom photo
-  const handleClosePhoto = () => {
-    setModalPhoto(false);
-  };
-
-  //gère le modal zoom photo
-  const zoomPhoto = (zoom) => {
-    setPhoto(zoom);
-    setModalPhoto(true);
-  };
+ 
 
   //ajoute un utilisateur en BDD
   const handleValidateSubmit = () => {
@@ -97,53 +72,10 @@ export default function SignUpScreen({ navigation }) {
       });
   };
 
-  //aller à la gallerie, formate et post photo
-  const goToGallery = async () => {
-    const formData = new FormData();
-    let result = await ImagePicker.launchImageLibraryAsync({
-      allowsEditing: true,
-      quality: 1,
-    });
+  
 
-    if (!result.canceled) {
-      formData.append("photoFromFront", {
-        uri: result.uri,
-        name: "photo.jpg",
-        type: "image/jpeg",
-      });
-
-      fetch(`https://backmymedperso.vercel.app/upload`, {
-        method: "POST",
-        body: formData,
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          console.log(data.result);
-          data.result && dispatch(addPhoto(data.url));
-        });
-    } else {
-      alert("Vous n'avez pas selectionné d'images.");
-    }
-  };
-
-  //affiche les photos en miniatures
-  const photos = user.photos.map((data, i) => {
-    return (
-      <View key={i} style={styles.photoContainer}>
-        <TouchableOpacity onPress={() => dispatch(removePhoto(data))}>
-          <FontAwesome
-            name="times"
-            size={20}
-            color="#000000"
-            style={styles.deleteIcon}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => zoomPhoto(data)}>
-          <Image source={{ uri: data }} style={styles.photo} />
-        </TouchableOpacity>
-      </View>
-    );
-  });
+   
+  
 
   return (
     <KeyboardAvoidingView // pour que le contenu défile au dessus du clavier
@@ -180,31 +112,7 @@ export default function SignUpScreen({ navigation }) {
               style={styles.input}
             />
           </View>
-          <View style={styles.row}>
-            <Pressable onPress={() => handlePress()}>
-              <View pointerEvents="none">
-                <TextInput
-                  style={styles.addPhoto}
-                  placeholder="CNI ou Passeport recto"
-                  placeholderTextColor="#5207E6"
-                  editable={false}
-                  onPress={() => handlePress()}
-                />
-              </View>
-            </Pressable>
-            <Pressable onPress={() => handlePress()}>
-              <View pointerEvents="none">
-                <TextInput
-                  style={styles.addPhoto}
-                  placeholder="CNI ou Passeport verso"
-                  placeholderTextColor="#5207E6"
-                  editable={false}
-                  onPress={() => handlePress()}
-                />
-              </View>
-            </Pressable>
-            <View style={styles.photosAdded}>{photos}</View>
-          </View>
+         
           <View style={styles.row}>
             <TextInput
               placeholder="Email"
@@ -231,70 +139,7 @@ export default function SignUpScreen({ navigation }) {
             <Text style={styles.textButton1}>Valider</Text>
           </TouchableOpacity>
 
-          <Modal visible={modalVisible} animationType="fade" transparent>
-            <View style={styles.modalContainer}>
-              <View style={styles.modalContent}>
-                <FontAwesome
-                  style={styles.buttonClose}
-                  name="times-circle"
-                  size={20}
-                  onPress={() => handleClose()}
-                />
-                <TouchableOpacity
-                  onPress={() => goToCamera()}
-                  style={styles.modalButton}
-                  activeOpacity={0.8}
-                >
-                  <Text
-                    style={{
-                      fontSize: 15,
-                      color: "#5207E6",
-                      textTransform: "uppercase",
-                      textShadowColor: "#88FF5B",
-                      textShadowOffset: { width: 3, height: 2 },
-                      textShadowRadius: 2,
-                      elevation: 10,
-                    }}
-                  >
-                    Prendre une photo
-                  </Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity
-                  onPress={() => goToGallery()}
-                  style={styles.modalButton}
-                  activeOpacity={0.8}
-                >
-                  <Text
-                    style={{
-                      fontSize: 15,
-                      color: "#5207E6",
-                      textTransform: "uppercase",
-                      textShadowColor: "#88FF5B",
-                      textShadowOffset: { width: 3, height: 2 },
-                      textShadowRadius: 2,
-                      elevation: 10,
-                      marginBottom: 10,
-                    }}
-                  >
-                    Importer depuis galerie
-                  </Text>
-                </TouchableOpacity>
-              </View>
-            </View>
-          </Modal>
-          <Modal visible={modalPhoto} animationType="fade">
-            <View style={styles.zoomView}>
-              <FontAwesome
-                style={styles.buttonClose}
-                name="times-circle"
-                size={20}
-                onPress={() => handleClosePhoto()}
-              />
-              <Image style={styles.imageZoom} source={{ uri: photo }} />
-            </View>
-          </Modal>
-          {isExist === true && <Text style={styles.error}>{error}</Text>}
+          
         </View>
       </ScrollView>
     </KeyboardAvoidingView>
@@ -371,39 +216,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     justifyContent: "center",
   },
-  modalContainer: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "rgba(0, 0, 0, 0.3)",
-  },
-  modalContent: {
-    width: "60%",
-    height: "30%",
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "rgba(220, 220, 255, 0.98)",
-    borderRadius: 0,
-    padding: 20,
-    overflow: "hidden",
-  },
-  buttonModal: {
-    marginTop: 10,
-    width: 200,
-    marginBottom: 30,
-    borderBottomColor: "#88FF5B",
-    borderBottomWidth: 3,
-    borderRadius: 5,
-  },
-  textButton: {
-    color: "black",
-    fontSize: 18,
-  },
-  buttonClose: {
-    color: "#5207E6",
-    marginBottom: 20,
-    marginTop: 10,
-  },
+
   error: {
     color: "red",
   },

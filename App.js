@@ -16,7 +16,6 @@ import MesPharmaciesScreen from "./screens/MesPharmaciesScreen";
 import MesReservationsScreen from "./screens/MesReservationsScreen";
 import ParametreScreen from "./screens/ParametreScreen";
 import CameraScreen from "./screens/CameraScreen";
-import CameraCniScreen from "./screens/CameraCniScreen";
 import PharmResultScreen from "./screens/PharmResultScreen";
 import MedResultScreen from "./screens/MedResultScreen";
 import MapScreen from "./screens/MapScreen";
@@ -63,16 +62,7 @@ const TabNavigator = () => {
 };
 
 export default function App() {
-  /*/  const [inputValue, setInputValue] = React.useState('');
 
-const handleInputChange = (text) => {
-    setInputValue(text);
-  };
-
-  const handleButtonClick = () => {
-    console.log('Button clicked');
-  };
- /*/ 
 
   return (
   <Provider store={store}>
@@ -93,7 +83,7 @@ const handleInputChange = (text) => {
         <Stack.Screen name="Resultats Medicaments" component={MedResultScreen}/>
         <Stack.Screen name="Map" component={MapScreen}/>
         <Stack.Screen name="Camera" component={CameraScreen}/>
-        <Stack.Screen name="CameraCni" component={CameraCniScreen}/>
+
       </Stack.Navigator>
     </NavigationContainer>
   

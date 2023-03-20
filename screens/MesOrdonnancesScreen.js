@@ -22,9 +22,9 @@ export default function MesOrdonnancesScreen({ navigation }) {
   const [photo, setPhoto] = useState("");
   //const [ordoList, setOrdoList] = useState([]);
 
-  const fetchOrdo = async () => {
+  const fetchOrdo = async () => { 
     const response = await fetch(
-      `https://backmymedperso.vercel.app/users/upload/${user.token}`
+      `https://backmymedperso.vercel.app/photos/upload/${user.token}`
     );
     const data = await response.json();
 
@@ -48,7 +48,7 @@ export default function MesOrdonnancesScreen({ navigation }) {
 
   //delete photo
   const handleDelete = (url) => {
-    fetch(`https://backmymedperso.vercel.app/users/deletePhoto/${user.token}`, {
+    fetch(`https://backmymedperso.vercel.app/photos/deletePhoto/${user.token}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ url: url }),
@@ -79,7 +79,7 @@ export default function MesOrdonnancesScreen({ navigation }) {
         type: "image/jpeg",
       });
 
-      fetch(`https://backmymedperso.vercel.app/upload/${user.token}`, {
+      fetch(`https://backmymedperso.vercel.app/photos/upload/${user.token}`, {
         method: "POST",
         body: formData,
       })
@@ -114,12 +114,7 @@ export default function MesOrdonnancesScreen({ navigation }) {
 
   return (
 
-    <LinearGradient
-    colors={['hsla(176, 61%, 87%, 1)', 'hsla(150, 54%, 86%, 1)', 'hsla(242, 68%, 84%, 1)']}
-    start={{ x: 0, y: 0 }}
-    end={{ x: 1, y: 0 }}
-    style={styles.gradient}
-   >
+   
     <View style={styles.container}>
       <Image style={styles.image} source={require("../assets/pharma3.png")} />
 
@@ -159,7 +154,7 @@ export default function MesOrdonnancesScreen({ navigation }) {
         </View>
       </Modal>
     </View>
-    </LinearGradient>
+   
   );
 }
 

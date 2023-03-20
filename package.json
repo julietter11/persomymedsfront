@@ -13,7 +13,6 @@
     "@react-navigation/native": "^6.1.6",
     "@react-navigation/native-stack": "6",
     "@reduxjs/toolkit": "^1.9.3",
-    "cloudinary": "^1.34.0",
     "expo": "^48.0.5",
     "expo-av": "^13.2.1",
     "expo-camera": "~13.2.1",

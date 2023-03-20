@@ -101,7 +101,7 @@ export default function MesOrdonnancesScreen({ navigation }) {
           <FontAwesome
             name="times"
             size={20}
-            color="#000000"
+            color="#5207E6"
             style={styles.deleteIcon}
           />
         </TouchableOpacity>
@@ -154,6 +154,8 @@ export default function MesOrdonnancesScreen({ navigation }) {
             style={styles.buttonClose}
             name="times-circle"
             size={30}
+            color="#5207E6"
+           
             onPress={() => handleClosePhoto()}
           />
           <Image style={styles.imageZoom} source={{ uri: photo }} />
@@ -176,19 +178,18 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   galleryContainer: {
-    width: "100%",
-    flexWrap: "wrap",
-    flexDirection: "row",
-    //justifyContent: 'center',
+  flex : 1,
+  width : "50%",
     borderWidth: 3,
     borderColor: "#88FF5B",
     marginTop: 10,
   },
   viewGallery: {
-    width: "100%",
-    flexDirection: "column",
-    flexWrap: "wrap",
-    alignItems: "center",
+  
+    flexDirection: "row",
+  flexWrap: "wrap",
+  justifyContent: "flex-start",
+    
   },
   touchablecontainer: {
     flexDirection: "row",

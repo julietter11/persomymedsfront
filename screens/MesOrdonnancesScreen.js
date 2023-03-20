@@ -114,7 +114,13 @@ export default function MesOrdonnancesScreen({ navigation }) {
 
   return (
 
-   
+    <LinearGradient
+
+    colors={['hsla(176, 61%, 87%, 1)', 'hsla(150, 54%, 86%, 1)', 'hsla(242, 68%, 84%, 1)']}
+    start={{ x: 0, y: 0 }}
+    end={{ x: 1, y: 0 }}
+    style={styles.gradient}
+    >
     <View style={styles.container}>
       <Image style={styles.image} source={require("../assets/pharma3.png")} />
 
@@ -154,6 +160,8 @@ export default function MesOrdonnancesScreen({ navigation }) {
         </View>
       </Modal>
     </View>
+
+    </LinearGradient>
    
   );
 }

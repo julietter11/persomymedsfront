@@ -10,7 +10,8 @@ import {
   Dimensions,
 } from "react-native";
 import { Video } from "expo-av";
-import { LinearGradient } from 'expo-linear-gradient';
+
+import CustomLinearGradient from "../components/CustomLinearGradient"
 
 export default function BienvenuScreen({ navigation }) {
   const video1 = useRef(null);
@@ -49,12 +50,7 @@ export default function BienvenuScreen({ navigation }) {
             <Text style={styles.title1}>Bienvenue !</Text>
           </View>
         </View>
-        <LinearGradient
-
-colors={['hsla(176, 61%, 87%, 1)', 'hsla(150, 54%, 86%, 1)', 'hsla(242, 68%, 84%, 1)']}
-start={{ x: 0, y: 0 }}
-end={{ x: 1, y: 0 }}
-style={styles.gradient}
+        <CustomLinearGradient
 >
         <View style={styles.onboardingView}>
           <View style={styles.logoContainer}>
@@ -69,17 +65,14 @@ style={styles.gradient}
           <View style={styles.textContainer}>
             <Text style={styles.text}>
               Avec My Meds, vérifier la disponibilité de vos
-              médicaments dans les pharmacies autour de vous. 
+              médicaments dans les pharmacies aux alentours. 
             </Text>
           </View>
         </View>
-        </LinearGradient>
+        </CustomLinearGradient>
          
-        <LinearGradient
- colors={['hsla(176, 61%, 87%, 1)', 'hsla(150, 54%, 86%, 1)', 'hsla(242, 68%, 84%, 1)']}
- start={{ x: 0, y: 0 }}
- end={{ x: 1, y: 0 }}
- style={styles.gradient}
+        <CustomLinearGradient
+
 >
         <View style={styles.onboardingView}>
           <View style={styles.logoContainer}>
@@ -93,8 +86,7 @@ style={styles.gradient}
           </View>
           <View style={styles.textContainer}>
             <Text style={styles.text}>
-              Vos médicaments sont disponibles près de chez vous ? Ils sont mis
-              de côté en pharmacie pour vous, pendant 2 heures
+              Vos médicaments sont disponibles ? Réservez les, pendant 2 heures et allez les chercher sereinement.
             </Text>
             <TouchableOpacity
               style={styles.button}
@@ -104,7 +96,7 @@ style={styles.gradient}
             </TouchableOpacity>
           </View>
         </View>
-        </LinearGradient>
+        </CustomLinearGradient>
       </ScrollView>
     </SafeAreaView>
   );
@@ -169,6 +161,7 @@ const styles = StyleSheet.create({
     width: "100%",
     padding: 10,
     top: 10,
+    marginBottom : 40
   },
   icon: {
     position: "absolute",
@@ -206,6 +199,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     width: "100%",
     padding: 10,
+    marginTop : 20
   },
   text: {
     fontSize: 20,

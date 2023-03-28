@@ -14,7 +14,7 @@ import FontAwesome from "react-native-vector-icons/FontAwesome";
 import { useSelector, useDispatch } from "react-redux";
 import { bookMed, validateBook } from "../reducers/user";
 import { Modal } from "react-native";
-import { LinearGradient } from 'expo-linear-gradient';
+import CustomLinearGradient from "../components/CustomLinearGradient"
 
 export default function MedResultScreen({ navigation }) {
   const BACKEND_URL = "https://backmymedperso.vercel.app";
@@ -219,12 +219,7 @@ export default function MedResultScreen({ navigation }) {
 
   return (
 
-    <LinearGradient
-
-    colors={['hsla(176, 61%, 87%, 1)', 'hsla(150, 54%, 86%, 1)', 'hsla(242, 68%, 84%, 1)']}
-    start={{ x: 0, y: 0 }}
-    end={{ x: 1, y: 0 }}
-    style={styles.gradient}
+    <CustomLinearGradient
     >
     <View style={styles.global}>
       {isVisible && (
@@ -339,7 +334,7 @@ export default function MedResultScreen({ navigation }) {
         </Modal>
       )}
     </View>
-    </LinearGradient>
+    </CustomLinearGradient>
   );
 }
 

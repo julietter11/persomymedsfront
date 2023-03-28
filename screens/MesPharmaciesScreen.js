@@ -1,15 +1,11 @@
 import { View, Text, Image, StyleSheet } from "react-native";
 import React from "react";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
-import { LinearGradient } from "expo-linear-gradient";
+import CustomLinearGradient from "../components/CustomLinearGradient"
 
 export default function MesMedicamentsScreen() {
   return (
-    <LinearGradient
-      colors={["#FFFFFF", "#F6F9FF", "#CCCCCC", "#E5E5E5"]}
-      start={[0, 0]}
-      end={[1, 1]}
-      style={[{ flex: 1 }, styles.gradient]}
+    <CustomLinearGradient
     >
       <View style={styles.container}>
         <Image style={styles.image} source={require("../assets/pharma3.png")} />
@@ -24,7 +20,7 @@ export default function MesMedicamentsScreen() {
           <Text style={styles.textButton}>Mes pharmacies</Text>
         </View>
       </View>
-    </LinearGradient>
+    </CustomLinearGradient>
   );
 }
 

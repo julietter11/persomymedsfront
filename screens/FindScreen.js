@@ -13,7 +13,7 @@ import { searchPosition } from "../reducers/user";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import * as Location from "expo-location";
-import { LinearGradient } from 'expo-linear-gradient';
+import CustomLinearGradient from "../components/CustomLinearGradient"
 
 export default function FindScreen({ navigation }) {
   const dispatch = useDispatch();
@@ -97,21 +97,31 @@ export default function FindScreen({ navigation }) {
 
   return (
 
-    <LinearGradient
-    colors={['hsla(176, 61%, 87%, 1)', 'hsla(150, 54%, 86%, 1)', 'hsla(242, 68%, 84%, 1)']}
-    start={{ x: 0, y: 0 }}
-    end={{ x: 1, y: 0 }}
+    
+
+    <CustomLinearGradient
     style={styles.gradient}
    >
-    <View style={styles.container}>
-      <Image style={styles.image} source={require("../assets/pharma3.png")} />
+      <View style={styles.logoContainer}>
+            <Image
+              style={styles.logo}
+              source={require("../assets/pharma3.png")}
+            />
+          </View>
 
-      <View style={styles.container}>
-        <View style={styles.searchbutton}>
+
+
+
+    <View style={styles.containermain}>
+
+       
+
+    
+        
           <View style={styles.titrecontainer}>
             <Text style={styles.titrepage}> Que souhaitez-vous faire ? </Text>
           </View>
-
+          <View style={styles.searchbutton}>
           <TouchableOpacity
             onPress={handlePharmacySearch}
             style={[
@@ -195,32 +205,54 @@ export default function FindScreen({ navigation }) {
             </View>
           </Modal>
         </View>
-      </View>
+      
     </View>
-    </LinearGradient>
+    </CustomLinearGradient>
   );
 }
 
 const styles = StyleSheet.create({
-  gradient : {
+  
+  containermain: {
     flex: 1,
-    
+    alignItems: "flex-end",
+    justifyContent: "center",
+    marginTop: 180
+  }, 
+
+
+
+  logoContainer: {
+    position: "absolute",
+  
+    justifyContent: "center",
+    alignItems: "center",
+    width: "90%",
+    height: "30%",
+    padding: 10,
+
   },
+  logo: {
+    width: "100%",
+    height: "80%",
+    opacity: 0.9,
+    marginLeft: 10,
+    resizeMode: "contain",
+    marginBottom : 70,
+    top: 10,
+  },
+
   buttonIcon: {
     height: 30,
     width: 30,
     marginBottom: 10,
     justifyContent: "center",
   },
-  map: {
-    width: "100%",
-    height: "100%",
-  },
+
   titrecontainer: {
-    alignItems: "center",
-    justifyContent: "center",
-    marginTop: 50,
-    marginBottom: 20,
+  marginTop: 50
+  
+   
   },
   titrepage: {
     fontSize: 30,
@@ -230,33 +262,19 @@ const styles = StyleSheet.create({
     textShadowColor: "#88FF5B",
     textShadowOffset: { width: 3, height: 2 },
     textShadowRadius: 2,
-    top: -310,
+    bottom: 60,
   },
-  image: {
-    width: 250,
-    height: 100,
-    opacity: 0.9,
-    marginLeft: 10,
-    resizeMode: "contain",
-    marginBottom: 40,
-    marginTop: 70,
-  },
-  imagedefond: {
-    flex: 1,
-    resizeMode: "cover",
-    justifyContent: "center",
-    alignItems: "center",
-  },
+ 
   searchbutton: {
     flexDirection: "row",
     justifyContent: "space-evenly",
     width: "100%",
-    marginTop: 30,
+    marginTop: 10,
   },
   button: {
     alignItems: "center",
     justifyContent: "center",
-    marginTop: 30,
+    marginTop: 10,
     paddingVertical: 10,
     paddingHorizontal: 20,
     bottom: 25,
@@ -282,19 +300,13 @@ const styles = StyleSheet.create({
     borderColor: "#88FF5B",
     addingHorizontal: 20,
     position: "absolute",
-    top: -200,
     left: 10,
     paddingHorizontal: 8,
   },
   textButtonMod1: {
     color: "#5207E6",
     height: 24,
-    fontWeight: "600",
-    fontSize: 15,
-    textAlign: "center",
-    textShadowColor: "#88FF5B",
-    textShadowOffset: { width: 3, height: 2 },
-    textShadowRadius: 2,
+  
   },
   button2: {
     flexDirection: "column",
@@ -308,7 +320,7 @@ const styles = StyleSheet.create({
     shadowRadius: 3,
     justifyContent: "center",
     position: "absolute",
-    top: -200,
+   
     right: 10,
     paddingVertical: 15,
     paddingHorizontal: 8,
@@ -318,13 +330,9 @@ const styles = StyleSheet.create({
   textButtonMod2: {
     color: "#5207E6",
     height: 24,
-    fontWeight: "600",
-    fontSize: 15,
-    textAlign: "center",
-    textShadowColor: "#88FF5B",
-    textShadowOffset: { width: 3, height: 2 },
-    textShadowRadius: 2,
+  
   },
+
   textButton: {
     fontSize: 20,
     color: "#5207E6",

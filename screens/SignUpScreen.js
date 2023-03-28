@@ -15,7 +15,9 @@ import React, { useState } from "react";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import * as ImagePicker from "expo-image-picker";
 import { useDispatch, useSelector } from "react-redux";
-import { userLog, addPhoto, removePhoto } from "../reducers/user";
+import { userLog,} from "../reducers/user";
+import CustomLinearGradient from "../components/CustomLinearGradient"
+
 
 export default function SignUpScreen({ navigation }) {
   const user = useSelector((state) => state.user.value);
@@ -78,11 +80,13 @@ export default function SignUpScreen({ navigation }) {
   
 
   return (
+    <CustomLinearGradient>
     <KeyboardAvoidingView // pour que le contenu défile au dessus du clavier
       style={styles.container}
       behavior={Platform.OS === "ios" ? "padding" : "height"}
       keyboardVerticalOffset={80} // Fait pour iphone, ajustez la valeur en fonction de votre clavier
     >
+      
       <ScrollView>
         <View style={styles.container}>
           <Image
@@ -142,7 +146,9 @@ export default function SignUpScreen({ navigation }) {
           
         </View>
       </ScrollView>
+    
     </KeyboardAvoidingView>
+    </CustomLinearGradient>
   );
 }
 

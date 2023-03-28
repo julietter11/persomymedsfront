@@ -11,7 +11,7 @@ import React, { useEffect, useState } from "react";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteUser, logout } from "../reducers/user";
-import { LinearGradient } from 'expo-linear-gradient';
+import CustomLinearGradient from "../components/CustomLinearGradient"
 
 export default function ParametreScreen({ navigation }) {
   const user = useSelector((state) => state.user.value);
@@ -122,12 +122,7 @@ export default function ParametreScreen({ navigation }) {
 
   return (
 
-    <LinearGradient
-    colors={['hsla(176, 61%, 87%, 1)', 'hsla(150, 54%, 86%, 1)', 'hsla(242, 68%, 84%, 1)']}
-    start={{ x: 0, y: 0 }}
-    end={{ x: 1, y: 0 }}
-    style={styles.gradient}
-   >
+    <CustomLinearGradient>
     <View style={styles.container}>
       <Image style={styles.image} source={require("../assets/pharma3.png")} />
 
@@ -284,7 +279,7 @@ export default function ParametreScreen({ navigation }) {
         <Text style={styles.textconfig}>Se déconnecter</Text>
       </TouchableOpacity>
     </View>
-    </LinearGradient>
+    </CustomLinearGradient>
   );
 }
 
